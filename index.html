@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-	<style>
-      #snakeContainer {
-          width: 300px;
-          height: 300px;
-          background-color: black;
-          position: relative;
-      }
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #snakeContainer {
+            width: 300px;
+            height: 300px;
+            background-color: black;
+            position: relative;
+        }
 
-      .snake-part, #SnakeHead {
-          width: 10px;
-          height: 10px;
-          background-color: yellow;
-          position: absolute;
-      }
+        .snake-part, #SnakeHead {
+            width: 10px;
+            height: 10px;
+            background-color: yellow;
+            position: absolute;
+        }
 
-      .snake-part {
-		      opacity: 0;
-      }
+        .snake-part {
+            opacity: 0;
+        }
 
-      #Bait {
-          width: 10px;
-          height: 10px;
-          background-color: green;
-          position: absolute;
-      }
-	</style>
+        #Bait {
+            width: 10px;
+            height: 10px;
+            background-color: green;
+            position: absolute;
+        }
+    </style>
 </head>
 <body>
-	<h1>Snake</h1>
-	<div id="snakeContainer" >
-		<div id="Snake">
-			<div id="SnakeHead"/>
-		</div>
-	</div>
+<h1>Snake</h1>
+<div id="snakeContainer" >
+    <div id="Snake">
+        <div id="SnakeHead"/>
+    </div>
+</div>
 <script src="variables.js"></script>
 <script src="domHelper.js"></script>
 <script src="helper.js"></script>
 <script src="gameBehavior.js"></script>
 <script>
-	generateBait();
-	resetHead();
-	setInterval(() => {
-		updateHead();
-	}, SPEED);
+  generateBait();
+  resetHead();
+  setInterval(() => {
+    updateHead();
+  }, SPEED);
 
-	document.addEventListener("keydown", (event) => {
-		let nextDirection = state.keyList[event.keyCode];
-		if (!DIRECTIONS.includes(nextDirection)) return;
-		if (!isOpposite(nextDirection)) {
-			state.direction = state.keyList[event.keyCode];
-		}
-	})
+  document.addEventListener("keydown", (event) => {
+    let nextDirection = state.keyList[event.keyCode];
+    if (!DIRECTIONS.includes(nextDirection)) return;
+    if (!isOpposite(nextDirection)) {
+      state.direction = state.keyList[event.keyCode];
+    }
+  })
 </script>
 </body>
 </html>
